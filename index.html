@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikah Invitation: Dr. Syeda Arshiya Ali & Dr. Mir Moinuddin Ali Khan</title>
+    <!-- FIX for YouTube Error 153: Enforce Referrer Policy Globally -->
+    <meta name="referrer" content="strict-origin-when-cross-origin"> 
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for elegance and wedding feel with Gold and Red theme */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght=700;900&display=swap');
         
         :root {
             --primary-color: #D4AF37; /* Richer, brighter Gold */
@@ -84,6 +86,10 @@
             text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3), 0 0 10px var(--primary-color); /* Gold shadow */
         }
         
+        .crimson-text {
+            color: var(--accent-color);
+        }
+
         /* Decorative Separator (Floral/Geometric) */
         .header-decoration {
             display: flex;
@@ -196,20 +202,20 @@
             <h2 class="text-3xl font-semibold mb-6 uppercase tracking-wider gold-text">Our Personal Invitation</h2>
             <p class="mb-6 text-lg">A special video message from us to you. Please watch our card!</p>
 
-            <!-- YouTube Video Embed using responsive iframe - Corrected URL -->
+            <!-- YouTube Video Embed using responsive iframe - UPDATED URL TO NOCOOKIE DOMAIN -->
             <div class="video-container mx-auto max-w-2xl shadow-2xl border-4 border-double border-red-900 rounded-lg">
                 <iframe 
                     class="rounded-sm"
-                    src="https://www.youtube.com/embed/mHvwo7-rNyo" 
+                    src="https://www.youtube-nocookie.com/embed/mHvwo7-rNyo" 
                     frameborder="0" 
                     referrerpolicy="strict-origin-when-cross-origin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
-                    title="Our Personal Invitation Video Embedded from YouTube">
+                    title="Our Personal Invitation Video Embedded from YouTube (Privacy Enhanced)">
                 </iframe>
             </div>
             <p class="mt-4 text-sm text-gray-500 italic">
-                *The video is embedded directly from YouTube. If the video still shows an error, please ensure the video's privacy is set to **Public** and that **embedding is allowed** in your YouTube settings.
+                *The video is embedded using the privacy-enhanced `youtube-nocookie.com` domain. If the video still shows an error, please ensure the video's **Allow embedding** setting is checked in YouTube Studio.
             </p>
         </section>
 
