@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikah Invitation: Dr. Syeda Arshiya Ali & Dr. Mir Moinuddin Ali Khan</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for elegance and wedding feel with Gold and Red theme */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght=700;900&display=swap');
+        
+        :root {
+            --primary-color: #D4AF37; /* Richer, brighter Gold */
+            --accent-color: #8B0000; /* Deep Maroon/Crimson */
+            --secondary-color: #333333; /* Dark text */
+            --background-color: #FDFCF8; /* Near White */
+        }
+
+        /* Body background with dense sparkle/star pattern */
+        .wedding-background {
+            background-color: var(--background-color);
+            /* Tighter, higher-contrast pattern for 'sparkle' and 'hangings' */
+            background-image: radial-gradient(var(--accent-color) 0.3px, transparent 0.3px),
+                              radial-gradient(var(--primary-color) 0.5px, transparent 0.5px);
+            background-size: 30px 30px; /* Denser pattern */
+            background-position: 0 0, 15px 15px;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--secondary-color);
+        }
+
+        .gold-text {
+            color: var(--primary-color);
+        }
+        
+        .crimson-text {
+            color: var(--accent-color);
+        }
+
+        /* Enhanced elegant box with gold border and subtle red glow/layering (suggesting fabric) */
+        .elegant-box {
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 
+                        0 0 0 10px rgba(139, 0, 0, 0.08); /* Soft Maroon outer layer/glow */
+            position: relative;
+            /* Inner shadow to suggest hanging/depth */
+            --tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            box-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        }
+
+        .countdown-unit {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Responsive video container for aspect ratio */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Luxury Initials Styling */
+        #initials {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900; /* Extra bold */
+            font-size: 10rem; /* Very large */
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3), 0 0 10px var(--primary-color); /* Gold shadow */
+        }
+        
+        /* Decorative Separator (Floral/Geometric) */
+        .header-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .header-decoration::before, .header-decoration::after {
+            content: "";
+            flex-grow: 1;
+            height: 2px; /* Thicker line */
+            background: var(--accent-color); /* Solid Red line */
+            max-width: 100px;
+            opacity: 0.7;
+        }
+        
+        /* Using a simple star/floral pattern in the center with Gold color */
+        .header-decoration .icon {
+            color: var(--primary-color); 
+            font-size: 2rem;
+            margin: 0 1rem;
+            text-shadow: 0 0 8px rgba(139, 0, 0, 0.5); /* Soft red shadow for contrast */
+        }
+        
+        /* Star SVG styling */
+        .header-decoration svg {
+            fill: currentColor;
+        }
+
+
+        /* RSVP Button Red Accent */
+        .rsvp-button {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .rsvp-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 wedding-background">
+
+    <div class="w-full max-w-4xl mx-auto my-8 p-6 md:p-10 bg-white rounded-xl elegant-box">
+        
+        <!-- Initials Section (Luxury Letters) -->
+        <div class="text-center mb-8">
+            <span id="initials" class="gold-text">A M</span>
+        </div>
+
+        <!-- Header & Main Title -->
+        <header class="text-center mb-6 pb-2">
+            <p class="text-lg gold-text tracking-widest uppercase">The Nikah of</p>
+            
+            <!-- Formal Names - NOW ON THREE LINES -->
+            <h1 class="text-3xl md:text-4xl font-semibold my-2 crimson-text leading-tight" style="font-family: 'Playfair Display', serif;">
+                Dr. Syeda Arshiya Ali <br>
+                <span class="gold-text mx-2 text-5xl inline-block">&</span> <br>
+                Dr. Mir Moinuddin Ali Khan
+            </h1>
+            
+            <!-- Decorative Separator (Star/Floral) -->
+            <div class="header-decoration">
+                <!-- Using a simple star/floral pattern to suggest geometric decoration -->
+                <span class="icon">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Six-pointed star for a classic geometric look -->
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                </span>
+            </div>
+
+            <p class="text-2xl mt-4 crimson-text font-bold">Saturday, November 22, 2025 | 7:00 PM</p>
+            <p class="text-xl italic mt-1 text-gray-700">At Shinwari, 6654 Arlington Blvd, Falls Church, VA 22042</p>
+        </header>
+
+        <!-- Countdown Timer Section -->
+        <section class="mb-12 text-center pt-8 border-t border-gray-200">
+            <h2 class="text-3xl font-semibold mb-6 uppercase tracking-wider crimson-text">Counting Down the Moments</h2>
+            
+            <div id="countdown" class="flex justify-center space-x-2 md:space-x-8">
+                <!-- Days -->
+                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border border-current rounded-lg shadow-md w-1/4">
+                    <div id="days" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Days</div>
+                </div>
+                <!-- Hours -->
+                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border border-current rounded-lg shadow-md w-1/4">
+                    <div id="hours" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Hours</div>
+                </div>
+                <!-- Minutes -->
+                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border border-current rounded-lg shadow-md w-1/4">
+                    <div id="minutes" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Minutes</div>
+                </div>
+                <!-- Seconds -->
+                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border border-current rounded-lg shadow-md w-1/4">
+                    <div id="seconds" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Seconds</div>
+                </div>
+            </div>
+            <p id="timer-message" class="text-xl mt-4 italic text-gray-700"></p>
+        </section>
+
+        <!-- Video Card Section -->
+        <section class="mb-10 text-center pt-8 border-t border-gray-200">
+            <h2 class="text-3xl font-semibold mb-6 uppercase tracking-wider gold-text">Our Personal Invitation</h2>
+            <p class="mb-6 text-lg">A special video message from us to you. Please watch our card!</p>
+
+            <div class="video-container mx-auto max-w-2xl shadow-2xl border-4 border-double border-red-900 rounded-lg">
+                <!-- *** UPDATED PATH: Use the relative path to the video file you will upload to GitHub *** -->
+                <video controls poster="https://placehold.co/1280x720/8B0000/FDFCF8?text=Video+Card+Preview" class="rounded-sm">
+                    <source src="./wedding_card.mp4" type="video/mp4">
+                    <p>Your browser doesn't support HTML5 video. Please download the video to view it.</p>
+                </video>
+            </div>
+            <p class="mt-4 text-sm text-gray-500 italic">
+                *The video is now expected to be named <strong>wedding_card.mp4</strong> and uploaded to your GitHub repository root.
+            </p>
+        </section>
+
+        <!-- RSVP/Details Placeholder -->
+        <footer class="text-center pt-6 border-t border-gray-200 mt-8">
+            <p class="text-xl italic text-gray-700">We can't wait to celebrate the Nikah with you!</p>
+            <div class="mt-3">
+                <a href="#" class="inline-block px-8 py-3 bg-white text-lg font-medium rsvp-button rounded-full hover:shadow-lg transition duration-300 uppercase tracking-widest">
+                    RSVP Now
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Set the date and time of the wedding (November 22, 2025, 7:00 PM)
+        const weddingDate = new Date('November 22, 2025 19:00:00').getTime();
+        const countdownElement = document.getElementById('countdown');
+        const timerMessage = document.getElementById('timer-message');
+
+        function updateCountdown() {
+            // Get the current time
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            const distance = weddingDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // If the countdown is over, stop the timer and display a message
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+                timerMessage.textContent = "The celebration has begun! Welcome!";
+                countdownElement.classList.add('hidden'); // Optionally hide the timer units
+                return;
+            }
+
+            // Output the result in elements
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+            timerMessage.textContent = "Until we say 'I do'!";
+        }
+
+        // Run the function immediately and then set an interval
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
