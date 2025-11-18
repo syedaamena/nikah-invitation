@@ -22,10 +22,9 @@
         /* Body background with dense sparkle/star pattern */
         .wedding-background {
             background-color: var(--background-color);
-            /* Tighter, higher-contrast pattern for 'sparkle' and 'hangings' */
             background-image: radial-gradient(var(--accent-color) 0.3px, transparent 0.3px),
                               radial-gradient(var(--primary-color) 0.5px, transparent 0.5px);
-            background-size: 30px 30px; /* Denser pattern */
+            background-size: 30px 30px; 
             background-position: 0 0, 15px 15px;
         }
 
@@ -42,26 +41,61 @@
             color: var(--accent-color);
         }
 
-        /* Enhanced elegant box with gold border and subtle red glow/layering (suggesting fabric) */
+        /* --- GLOBAL TEXT CENTERING FIX --- */
         .elegant-box {
-            border: 4px solid var(--primary-color);
-            position: relative;
-            /* FIX: Restored correct combined box shadow for border, glow, and depth */
+            /* Ensures the beautiful gold border and maroon glow are visible */
             box-shadow: 
-                0 0 0 10px rgba(139, 0, 0, 0.08), /* Soft Maroon outer layer/glow */
-                0 10px 25px -5px rgba(0, 0, 0, 0.2), /* Outer regular shadow */
-                inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); /* Inner shadow */
+                inset 0 3px 6px 0 rgba(0, 0, 0, 0.1),
+                0 10px 30px -5px rgba(0, 0, 0, 0.3),
+                0 0 0 15px rgba(139, 0, 0, 0.1),
+                0 0 0 6px var(--primary-color);
+            border: none;
+            position: relative;
+            
+            /* FORCE ALL TEXT INSIDE TO CENTER */
+            text-align: center !important; 
+        }
+        /* ----------------------------------------------------------- */
+
+        /* Container to center the entire countdown block */
+        #countdown-wrapper {
+            max-width: 600px;
+            margin: 0 auto; /* Center the wrapper horizontally */
+            padding: 1rem 0;
+        }
+        
+        /* The actual flex container inside the wrapper */
+        #countdown {
+            display: flex !important; /* Force flex display */
+            justify-content: space-between !important; /* Use space-between for distribution */
+            gap: 1.5rem; /* Explicit spacing between units */
+            flex-wrap: nowrap; /* Keep them in one row on wider screens */
         }
 
         .countdown-unit {
             font-family: 'Playfair Display', serif;
+            /* Flex basis ensures they share space equally */
+            flex-basis: 25%;
+            min-width: 70px; /* Minimum size for mobile readability */
+            text-align: center !important; /* Force text center within the unit */
         }
+
+
+        @media (max-width: 640px) {
+            #countdown {
+                gap: 0.5rem; /* Tighter spacing on small screens */
+            }
+            .countdown-unit {
+                min-width: 60px; /* Smaller minimum width on tiny screens */
+            }
+        }
+        /* ----------------------------------------------------- */
 
         /* Responsive video container for aspect ratio (16:9 for YouTube) */
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             border-radius: 0.5rem;
@@ -79,17 +113,13 @@
         /* Luxury Initials Styling */
         #initials {
             font-family: 'Playfair Display', serif;
-            font-weight: 900; /* Extra bold */
-            font-size: 10rem; /* Very large */
+            font-weight: 900; 
+            font-size: 10rem; 
             line-height: 0.8;
             letter-spacing: -0.05em;
-            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3), 0 0 10px var(--primary-color); /* Gold shadow */
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-color); 
         }
         
-        .crimson-text {
-            color: var(--accent-color);
-        }
-
         /* Decorative Separator (Floral/Geometric) */
         .header-decoration {
             display: flex;
@@ -101,10 +131,16 @@
         .header-decoration::before, .header-decoration::after {
             content: "";
             flex-grow: 1;
-            height: 2px; /* Thicker line */
-            background: var(--accent-color); /* Solid Red line */
+            height: 3px; 
+            background: repeating-linear-gradient(
+                90deg, 
+                var(--accent-color), 
+                var(--accent-color) 4px, 
+                transparent 4px, 
+                transparent 8px
+            ); 
             max-width: 100px;
-            opacity: 0.7;
+            opacity: 0.8;
         }
         
         /* Using a simple star/floral pattern in the center with Gold color */
@@ -112,7 +148,7 @@
             color: var(--primary-color); 
             font-size: 2rem;
             margin: 0 1rem;
-            text-shadow: 0 0 8px rgba(139, 0, 0, 0.5); /* Soft red shadow for contrast */
+            text-shadow: 0 0 8px rgba(139, 0, 0, 0.5); 
         }
         
         /* Star SVG styling */
@@ -123,7 +159,8 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4 wedding-background">
 
-    <div class="w-full max-w-4xl mx-auto my-8 p-6 md:p-10 bg-white rounded-xl elegant-box">
+    <!-- The parent container still has text-center and max-width -->
+    <div class="w-full max-w-4xl mx-auto my-8 p-6 md:p-10 bg-white rounded-xl elegant-box z-10">
         
         <!-- Initials Section (Luxury Letters) -->
         <div class="text-center mb-8">
@@ -131,7 +168,7 @@
         </div>
 
         <!-- Header & Main Title -->
-        <header class="text-center mb-6 pb-2">
+        <header class="mb-6 pb-2">
             <p class="text-lg gold-text tracking-widest uppercase">The Nikah of</p>
             
             <!-- Formal Names - NOW ON THREE LINES -->
@@ -143,10 +180,8 @@
             
             <!-- Decorative Separator (Star/Floral) -->
             <div class="header-decoration">
-                <!-- Using a simple star/floral pattern to suggest geometric decoration -->
                 <span class="icon">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Six-pointed star for a classic geometric look -->
                         <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                 </span>
@@ -157,40 +192,43 @@
         </header>
 
         <!-- Countdown Timer Section -->
-        <section class="mb-12 text-center pt-8 border-t border-gray-200">
+        <section class="mb-12 pt-8 border-t border-gray-200">
             <h2 class="text-3xl font-semibold mb-6 uppercase tracking-wider crimson-text">Counting Down the Moments</h2>
             
-            <!-- This container uses flex to keep the units horizontal -->
-            <div id="countdown" class="flex justify-center space-x-2 md:space-x-8">
-                <!-- Days -->
-                <!-- FIX: Used explicit gold border classes for stability and appearance -->
-                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md w-1/4">
-                    <div id="days" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
-                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Days</div>
-                </div>
-                <!-- Hours -->
-                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md w-1/4">
-                    <div id="hours" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
-                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Hours</div>
-                </div>
-                <!-- Minutes -->
-                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md w-1/4">
-                    <div id="minutes" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
-                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Minutes</div>
-                </div>
-                <!-- Seconds -->
-                <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md w-1/4">
-                    <div id="seconds" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
-                    <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Seconds</div>
+            <!-- NEW WRAPPER TO FORCE CENTERING -->
+            <div id="countdown-wrapper">
+                <div id="countdown"> 
+                    <!-- Days -->
+                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                        <div id="days" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                        <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Days</div>
+                    </div>
+                    <!-- Hours -->
+                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                        <div id="hours" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                        <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Hours</div>
+                    </div>
+                    <!-- Minutes -->
+                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                        <div id="minutes" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                        <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Minutes</div>
+                    </div>
+                    <!-- Seconds -->
+                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                        <div id="seconds" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
+                        <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Seconds</div>
+                    </div>
                 </div>
             </div>
+            <!-- END NEW WRAPPER -->
+
             <p id="timer-message" class="text-xl mt-4 italic text-gray-700"></p>
         </section>
 
         <!-- Video Card Section -->
-        <section class="mb-10 text-center pt-8 border-t border-gray-200">
+        <section class="mb-10 pt-8 border-t border-gray-200">
             <h2 class="text-3xl font-semibold mb-6 uppercase tracking-wider gold-text">Our Personal Invitation</h2>
-            <p class="mb-6 text-lg">A special video message from us to you.</p>
+            <p class="mb-6 text-lg">A special video message from us to you. Please watch our card!</p>
 
             <!-- YouTube Video Embed using responsive iframe - USING ID: QaOMVhNPZew -->
             <div class="video-container mx-auto max-w-2xl shadow-2xl border-4 border-double border-red-900 rounded-lg">
@@ -207,7 +245,7 @@
         </section>
 
         <!-- RSVP/Details Placeholder -->
-        <footer class="text-center pt-6 border-t border-gray-200 mt-8">
+        <footer class="pt-6 border-t border-gray-200 mt-8">
             <p class="text-xl italic text-gray-700">We can't wait to celebrate the DAY with you!</p>
         </footer>
 
@@ -220,19 +258,14 @@
         const timerMessage = document.getElementById('timer-message');
 
         function updateCountdown() {
-            // Get the current time
             const now = new Date().getTime();
-            
-            // Find the distance between now and the count down date
             const distance = weddingDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // If the countdown is over, stop the timer and display a message
             if (distance < 0) {
                 clearInterval(interval);
                 document.getElementById("days").textContent = "00";
@@ -240,11 +273,9 @@
                 document.getElementById("minutes").textContent = "00";
                 document.getElementById("seconds").textContent = "00";
                 timerMessage.textContent = "The celebration has begun! Welcome!";
-                countdownElement.classList.add('hidden'); // Optionally hide the timer units
                 return;
             }
 
-            // Output the result in elements
             document.getElementById("days").textContent = String(days).padStart(2, '0');
             document.getElementById("hours").textContent = String(hours).padStart(2, '0');
             document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
@@ -252,7 +283,6 @@
             timerMessage.textContent = "Until we say 'Qubool Hai'!";
         }
 
-        // Run the function immediately and then set an interval
         updateCountdown();
         const interval = setInterval(updateCountdown, 1000);
     </script>
