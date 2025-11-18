@@ -78,6 +78,13 @@
             flex-basis: 25%;
             min-width: 70px; /* Minimum size for mobile readability */
             text-align: center !important; /* Force text center within the unit */
+
+            /* --- EXPLICIT BOX STYLING ADDED HERE --- */
+            border: 2px solid var(--primary-color); /* Gold Border */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            background-color: rgba(255, 250, 240, 0.5); /* Creamy background */
+            /* -------------------------------------- */
         }
 
 
@@ -199,22 +206,23 @@
             <div id="countdown-wrapper">
                 <div id="countdown"> 
                     <!-- Days -->
-                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                    <!-- Note: Removed Tailwind classes and relying on .countdown-unit CSS for box -->
+                    <div class="countdown-unit p-3 md:p-6">
                         <div id="days" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
                         <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Days</div>
                     </div>
                     <!-- Hours -->
-                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                    <div class="countdown-unit p-3 md:p-6">
                         <div id="hours" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
                         <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Hours</div>
                     </div>
                     <!-- Minutes -->
-                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                    <div class="countdown-unit p-3 md:p-6">
                         <div id="minutes" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
                         <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Minutes</div>
                     </div>
                     <!-- Seconds -->
-                    <div class="countdown-unit p-3 md:p-6 bg-yellow-50/50 border-2 border-yellow-700 rounded-lg shadow-md">
+                    <div class="countdown-unit p-3 md:p-6">
                         <div id="seconds" class="text-4xl md:text-5xl font-extrabold gold-text">00</div>
                         <div class="text-xs md:text-sm uppercase tracking-wider mt-1 crimson-text">Seconds</div>
                     </div>
